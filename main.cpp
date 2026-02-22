@@ -43,7 +43,7 @@ int main() {
 
     file.close();
 
-    int N = 2; // Number of threads (you can change this)
+    int N = 2;
     int segmentSize = allWords.size() / N;
 
     pthread_t threads[N];
