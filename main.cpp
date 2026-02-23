@@ -65,7 +65,7 @@ int main() {
     }
 
     //Print Intermediate Results
-    cout << "\n--- Intermediate Results ---\n";
+    cout << "\n Intermediate Results\n";
     for (int i = 0; i < N; i++) {
         cout << "\nThread " << i + 1 << ":\n";
         for (auto pair : threadData[i].wordCount) {
@@ -82,7 +82,7 @@ int main() {
     }
 
     // Print final result
-    cout << "\n--- Final Word Frequency ---\n";
+    cout << "\nFinal Word Frequency\n";
     for (auto pair : finalCount) {
         cout << pair.first << " : " << pair.second << endl;
     }
