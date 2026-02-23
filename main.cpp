@@ -50,7 +50,13 @@ int main() {
     // Divide words among threads
     for (int i = 0; i < N; i++) {
         int start = i * segmentSize;
-        int end = (i == N - 1) ? totalWords : start + segmentSize;
+        int end;
+
+        if (i == N - 1) {
+            end = totalWords;
+        } else {
+            end = start + segmentSize;
+        }
 
         for (int j = start; j < end; j++) {
             threadData[i].words.push_back(allWords[j]);
@@ -64,8 +70,8 @@ int main() {
         pthread_join(threads[i], NULL);
     }
 
-    //Print Intermediate Results
-    cout << "\n Intermediate Results\n";
+    // Print Intermediate Results
+    cout << "\nIntermediate Results\n";
     for (int i = 0; i < N; i++) {
         cout << "\nThread " << i + 1 << ":\n";
         for (auto pair : threadData[i].wordCount) {
